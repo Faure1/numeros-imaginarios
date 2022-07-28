@@ -184,8 +184,16 @@ export default function Home() {
                   <div className='d-flex col-12 justify-content-center'>
                     <p className='text-center'>Tambien hay veces que tenemos 2 ecuaciones entonces para poder realizar la formula de Bhaskara tenemos que igualarlas, pero obvio despues a eso hay que igualarlo a 0,esto se llama Igualación.</p>
                   </div>
-                  <div className='d-flex col-12 justify-content-center'>
+                  <div className='d-flex col-12 justify-content-center mt-5 mb-5'>
                     <h1 className='text-center'>Igualación</h1>
+                  </div>
+                  <div className='d-flex col-12 respon '>
+                    <div className='d-flex col-lg-6 col-12 align-items-center '>
+                      <div><p className='text-center'>Para aplicar este metodo tienes que igualar las 2 ecuaciones, es decir, ecuacion = ecuacion una vez que tenemos esto tenemos que pasar toda una ecuacion para el otro lado juntando las x, las x elevado a la 2 y los numeros de un lado, para poder igualarlo a 0 y aplicar la formula de bhaskara.   </p></div>
+                    </div>
+                    <div className='d-flex col-12 col-lg-6 '>
+                      <div><Image alt="igual" className='igual' src='/assets/igualacion.png' width={375} height={200} layout='responsive'></Image></div>
+                    </div>
                   </div>
                 </Row>
                 <Row>
@@ -196,3 +204,4 @@ export default function Home() {
       </>
     );
 }
+
