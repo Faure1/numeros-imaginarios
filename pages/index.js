@@ -49,9 +49,15 @@ export default function Home() {
       if (delta < 0) {
         delta= delta*-1
         let x1 = ((stateB *-1)/ (2 * stateA))*1;
+        if (x1>0){
+          x1 = ("+" + x1)
+        }
         let x1i= (((Math.sqrt(delta)) / (2 * stateA)) + "i" );
         let x2 = ((stateB *-1) / (2 * stateA))*-1 ;
-        let x2i = ( ((Math.sqrt(delta)) / (2 * stateA)) + "i"  );
+        if (x2>0){
+          x2 = ("+" + x2)
+        }
+        let x2i = ( ((Math.sqrt(delta)) / (2 * stateA)) + "i");
         setResultado({ resA: x1, resB: x2, resAi:x1i,resBi:x2i });
         return;
       }
