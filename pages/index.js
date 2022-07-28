@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import Layout from '../components/Layout.js';
 import {Button, Container, Row,Image} from 'react-bootstrap';
-
+import Swal from "sweetalert2";
 export default function Home() {
     const [inputs, setInputs] = useState({
         A:"",
@@ -31,15 +31,28 @@ export default function Home() {
 
     const handleSubmit = () => {
       if (!stateA || !stateB || !stateC) {
-        alert("Ingrese todos los campos");
+        Swal.fire({
+          icon: "warning",
+          title: "¡Cuidado!",
+          text: "Ingrese todos los campos",
+        });
         return;
       } else if (stateA == 0) {
-        alert("no se puede dividir por 0");
+        Swal.fire({
+          icon: "warning",
+          title: "¡Cuidado!",
+          text: "No se puede dividir por 0",
+        });
         return;
       }
       let delta = calcularDelta(stateA, stateB, stateC);
       if (delta < 0) {
-        alert("Sin raices reales");
+        delta= delta*-1
+        let x1 = ((stateB *-1)/ (2 * stateA))*1;
+        let x1i= (((Math.sqrt(delta)) / (2 * stateA)) + "i" );
+        let x2 = ((stateB *-1) / (2 * stateA))*-1 ;
+        let x2i = ( ((Math.sqrt(delta)) / (2 * stateA)) + "i"  );
+        setResultado({ resA: x1, resB: x2, resAi:x1i,resBi:x2i });
         return;
       }
       let x1 = (-stateB + Math.sqrt(delta)) / (2 * stateA);
@@ -122,10 +135,10 @@ export default function Home() {
                         </Row>
                         <Row className='mt-4 d-flex justify-content-center'>
                           <div className='col-lg-4 col-12 text-center'>
-                            <h5>El resultado con + es: {resutaldo.resA}</h5>
+                            <h5 className='de-flex'>El resultado con + es: {resutaldo.resAi}     {resutaldo.resA}</h5>
                           </div>
                           <div className='col-lg-4 col-12 text-center'>
-                            <h5>El resultado con - es:{resutaldo.resB}</h5>
+                            <h5>El resultado con - es:    {resutaldo.resBi}        {resutaldo.resB}</h5>
                           </div>
                         </Row>
                     </div>
@@ -149,6 +162,33 @@ export default function Home() {
                   <div className='d-flex justify-content-center'>
                   <Image alt="Formula" src='/assets/formula.png' width={375} height={150} layout='intrinsic'></Image>
                   </div>
+                </Row>
+              </Container>
+            </section>
+            <section>
+              <Container className='mb-5 mt-5'>
+                <Row className='mb-5'>
+                  <div className='d-flex col-12 justify-content-center'>
+                    <h1 className='text-center'>¿Como saber cual es el a, b y c de una ecuacion cuadratica?.</h1>
+                  </div>
+                </Row>
+                <Row>
+                  <div className='d-flex col-12 justify-content-center'>
+                    <Image alt="abc" src='/assets/abc.png' width={375} height={200} layout='intrinsic'></Image>
+                  </div>
+                </Row>
+                <Row>
+                  <div className='d-flex col-12 justify-content-center'>
+                    <p className='text-center'>Esta imagen nos da un ejemplo de como hacerlo, recuerden que para hacer esto la ecuacion siempre tiene que estar igualada a 0.</p>
+                  </div>
+                  <div className='d-flex col-12 justify-content-center'>
+                    <p className='text-center'>Tambien hay veces que tenemos 2 ecuaciones entonces para poder realizar la formula de Bhaskara tenemos que igualarlas, pero obvio despues a eso hay que igualarlo a 0,esto se llama Igualación.</p>
+                  </div>
+                  <div className='d-flex col-12 justify-content-center'>
+                    <h1 className='text-center'>Igualación</h1>
+                  </div>
+                </Row>
+                <Row>
                 </Row>
               </Container>
             </section>
