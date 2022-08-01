@@ -3,6 +3,7 @@ import Layout from '../components/Layout.js';
 import {Button, Container, Row,Image} from 'react-bootstrap';
 import Swal from "sweetalert2";
 export default function Home() {
+  <link async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4897751825620818" crossorigin="anonymous"></link>
     const [inputs, setInputs] = useState({
         A:"",
         B:"",
